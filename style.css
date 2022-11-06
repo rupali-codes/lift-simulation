@@ -1,0 +1,79 @@
+body {
+	margin: 0; padding: 0;
+}
+
+h1 {
+	text-align: center;
+	margin: 50px;
+	font-family: monospace;
+}
+
+.floors {
+	margin: 50px;
+	padding: 20px;
+}
+
+.floor {
+	display: flex;
+	border-bottom: 2px solid black;
+	margin-top: 20px;
+}
+
+.btns {
+	display: flex;
+	flex-direction: column;
+}
+
+.btn {
+	padding: 8px 15px;
+	margin: 10px;
+	border-radius: 3px;
+	border:  none;
+	color: white;
+	cursor: pointer;
+}
+
+.btn:hover {
+	background: rgba(0, 0, 0, 0.3);
+}
+
+.btn-yellow {
+	background: #fbbf24;
+}
+
+.btn-blue {
+	background: #38bdf8;
+}
+
+.lifts {
+	display: flex;
+	justify-content: space-around;
+	margin-left: 20px;
+}
+
+.lift {
+	height: 120px;
+	width: 100px;
+	background: #a3e635;
+}
+
+.door {
+	background: rgba(255, 255, 255, 0);
+	height: 100px;
+	width: 98px;
+	margin: auto;
+	margin-top: 20px;
+}
+
+.lift:hover {
+	background: #84cc16;
+	cursor: pointer;
+}
+
+.f2 {
+	margin-left: 130px;
+}
+
+.f3 {
+	margin-left: 260px;
+}
