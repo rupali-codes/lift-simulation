@@ -8,6 +8,14 @@ h1 {
 	font-family: monospace;
 }
 
+h3 {
+	/*background: rgba(0, 0, 0, 0.4);*/
+	float: right;
+	/*bottom: 0;*/
+	/*top: 50%;*/
+	/*border:  1px solid red;*/
+}
+
 .floors {
 	margin: 50px;
 	padding: 20px;
