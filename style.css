@@ -1,19 +1,20 @@
 body {
 	margin: 0; padding: 0;
+	font-family: Arial;
+}
+
+.heading {
+	background: linear-gradient(30deg, #fbbf24, #38bdf8);
+	padding: 1px;
 }
 
 h1 {
 	text-align: center;
-	margin: 50px;
-	font-family: monospace;
+	color: white;
 }
 
 h3 {
-	/*background: rgba(0, 0, 0, 0.4);*/
 	float: right;
-	/*bottom: 0;*/
-	/*top: 50%;*/
-	/*border:  1px solid red;*/
 }
 
 .floors {
@@ -24,7 +25,7 @@ h3 {
 .floor {
 	display: flex;
 	border-bottom: 2px solid black;
-	margin-top: 20px;
+	padding-top: 30px;
 }
 
 .btns {
@@ -55,8 +56,8 @@ h3 {
 
 .lifts {
 	display: flex;
-	justify-content: space-around;
-	margin-left: 20px;
+	justify-content: space-between;
+	margin-left: 40px;
 }
 
 .lift {
@@ -65,12 +66,18 @@ h3 {
 	background: #a3e635;
 }
 
-.door {
-	background: rgba(255, 255, 255, 0);
+.doors {
 	height: 100px;
-	width: 98px;
-	margin: auto;
 	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+}
+
+.door-left, .door-right {
+	margin: 1px;
+	background: rgba(0,0,0,0.5);
+	width: 45%;
+	transition: transform 2.5s;
 }
 
 .lift:hover {
