@@ -1,6 +1,6 @@
 const floorsSection = document.querySelector('#floors-section')
 
-const floors = 3;
+const totalFloors = 3;
 const totalLifts = 3;
 
 const floorMarkup = (i) => {
@@ -28,7 +28,7 @@ const liftMarkup = (i) => {
 	`
 }
 
-for (let i = 0; i < floors; i++) {
+for (let i = 0; i < totalFloors; i++) {
 	floorsSection.insertAdjacentHTML('afterbegin', floorMarkup(i))
 }
 
@@ -60,7 +60,7 @@ allBtns.forEach(btn => {
 
 			const lift = document.querySelector(`#lift-${liftNumber}`)
 			lift.style.transition = 'transform 2s'
-			lift.style.transform = `translateY(-${152 * btnId}px)`
+			lift.style.transform = `translateY(-${145 * btnId}px)`
 
 		} else if (btn.id.includes('down')) {
 			console.log("down btn clicked")
@@ -70,7 +70,7 @@ allBtns.forEach(btn => {
 
 			const lift = document.querySelector(`#lift-${liftNumber}`)
 			lift.style.transition = 'transform 2s'
-			lift.style.transform = `translateY(0)`
+			lift.style.transform = `translateY(${0}px)`
 		}
 	})
 })

@@ -61,13 +61,13 @@ h3 {
 }
 
 .lift {
-	height: 120px;
-	width: 100px;
+	height: 100px;
+	width: 80px;
 	background: #a3e635;
 }
 
 .doors {
-	height: 100px;
+	height: 80%;
 	margin-top: 20px;
 	display: flex;
 	justify-content: center;
