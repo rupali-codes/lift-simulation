@@ -1,7 +1,21 @@
+const inputForm = document.querySelector('#input-form')
+const generateBtn = document.querySelector('#generate-btn')
+const inputFloors = document.querySelector('#input-floors')
+const inputLifts = document.querySelector('#input-lifts')
 const floorsSection = document.querySelector('#floors-section')
 
-const totalFloors = 3;
-const totalLifts = 3;
+let totalFloors = 0;
+let totalLifts = 0;
+
+generateBtn.addEventListener('click', (e) => {
+	e.preventDefault()
+	totalFloors = parseInt(inputFloors.value)
+	totalLifts = parseInt(inputLifts.value)
+
+	inputForm.classList.add('hidden')
+	floorsSection.classList.remove('hidden')
+
+
 
 const floorMarkup = (i) => {
 	return `
@@ -73,4 +87,6 @@ allBtns.forEach(btn => {
 			lift.style.transform = `translateY(${0}px)`
 		}
 	})
+})
+
 })

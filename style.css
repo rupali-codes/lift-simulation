@@ -3,6 +3,10 @@ body {
 	font-family: Arial;
 }
 
+.hidden {
+	display: none;
+}
+
 .heading {
 	background: linear-gradient(30deg, #fbbf24, #38bdf8);
 	padding: 1px;
@@ -85,10 +89,34 @@ h3 {
 	cursor: pointer;
 }
 
-.f2 {
-	margin-left: 130px;
+/*input form*/
+#input-form {
+	width: 40%;
+	padding:  30px;
+	margin: 20px auto;
+	text-align: center;
+	background: linear-gradient(30deg, #38bdf8, #fbbf24);
+	color: white;
+	border-radius: 15px;
 }
 
-.f3 {
-	margin-left: 260px;
+label, input {
+	display: block;
+	margin: auto;
+}
+
+label {
+	margin-top: 12px;
+	font-size: 20px;
+}
+
+input {
+	padding: 4px 7px;
+	margin: 5px auto;
+	border:  none;
+	border-radius: 5px;
+}
+
+#generate-btn {
+	margin: 20px auto;
 }
