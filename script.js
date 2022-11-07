@@ -1,7 +1,7 @@
 const floorsSection = document.querySelector('#floors-section')
 
 const floors = 3;
-const lifts = 3;
+const totalLifts = 3;
 
 const floorMarkup = (i) => {
 	return `
@@ -28,39 +28,49 @@ const liftMarkup = (i) => {
 	`
 }
 
-for (let i = 1; i <= floors; i++) {
+for (let i = 0; i < floors; i++) {
 	floorsSection.insertAdjacentHTML('afterbegin', floorMarkup(i))
 }
 
-for (let i = 1; i <= lifts; i++) {
-	document.querySelector('#floor-1').insertAdjacentHTML('beforeend', liftMarkup(i))
+for (let i = 0; i < totalLifts; i++) {
+	document.querySelector('#floor-0').insertAdjacentHTML('beforeend', liftMarkup(i))
 }
 
-document.querySelector('#up-btn-2').addEventListener('click', (e) => {
-	e.preventDefault()
-	console.log("btn clicked")
-	const lift = document.querySelector('#lift-1')
-	lift.style.transition = 'transform 2s'
-	lift.style.transform = 'translateY(-152px)'
-})
+//-----------------------picking lift-------------------------------
+const freeLifts = []
+const busyLifts = []
 
-document.querySelector('#up-btn-3').addEventListener('click', (e) => {
-	e.preventDefault()
-	console.log("btn clicked")
-	const lift = document.querySelector('#lift-2')
-	lift.style.transition = 'transform 2s'
-	lift.style.transform = 'translateY(-292px)'
-})
+for (i = 0; i < totalLifts; i++) {
+	freeLifts[i] = i
+}
 
-document.querySelector('#down-btn-3').addEventListener('click', (e) => {
-	e.preventDefault()
-	console.log("btn clicked")
-	const lift = document.querySelector('#lift-2')
-	lift.style.transition = 'transform 2s'
-	lift.style.transform = 'translateY(0px)'
-})
+console.log(freeLifts)
 
-const allBtns = document.querySelector('.btns')
-allBtns.addEventListener('click', (e) => {
-	console.log(e.target.closest('.btn'))
+const allBtns = document.querySelectorAll('.btns')
+allBtns.forEach(btn => {
+	btn.addEventListener('click', (e) => {
+		e.preventDefault()
+		const btn = e.target.closest('.btn')
+		const btnId = btn.id[btn.id.length-1];
+		if (btn.id.includes('up')) {
+
+			const liftNumber = freeLifts.shift()
+			busyLifts.push(liftNumber)
+			console.log(freeLifts, busyLifts)
+
+			const lift = document.querySelector(`#lift-${liftNumber}`)
+			lift.style.transition = 'transform 2s'
+			lift.style.transform = `translateY(-${152 * btnId}px)`
+
+		} else if (btn.id.includes('down')) {
+			console.log("down btn clicked")
+			const liftNumber = busyLifts.shift()
+			freeLifts.push(liftNumber)
+			console.log(btnId)
+
+			const lift = document.querySelector(`#lift-${liftNumber}`)
+			lift.style.transition = 'transform 2s'
+			lift.style.transform = `translateY(0)`
+		}
+	})
 })

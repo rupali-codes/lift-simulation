@@ -24,7 +24,7 @@ h3 {
 
 .floor {
 	display: flex;
-	border-bottom: 2px solid black;
+	border-bottom: 2px solid darkgray;
 	padding-top: 30px;
 }
 
