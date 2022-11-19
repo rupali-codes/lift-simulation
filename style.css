@@ -8,7 +8,7 @@ body {
 }
 
 .heading {
-	background: linear-gradient(30deg, #fbbf24, #38bdf8);
+	background: #eab308;
 	padding: 1px;
 }
 
@@ -29,7 +29,8 @@ h3 {
 .floor {
 	display: flex;
 	border-bottom: 2px solid darkgray;
-	padding-top: 30px;
+	padding-top: 10px;
+	height: 100px;
 }
 
 .btns {
@@ -41,22 +42,17 @@ h3 {
 	padding: 8px 15px;
 	margin: 10px;
 	border-radius: 3px;
-	border:  none;
+	border:  none;	
 	color: white;
+	font-weight: bold;
 	cursor: pointer;
+	background: #eab308;
 }
 
 .btn:hover {
-	background: rgba(0, 0, 0, 0.3);
+	background: #ca8a04;
 }
 
-.btn-yellow {
-	background: #fbbf24;
-}
-
-.btn-blue {
-	background: #38bdf8;
-}
 
 .lifts {
 	display: flex;
@@ -65,9 +61,9 @@ h3 {
 }
 
 .lift {
-	height: 100px;
+	height: 100%;
 	width: 80px;
-	background: #a3e635;
+	background: #eab308;
 }
 
 .doors {
@@ -77,26 +73,26 @@ h3 {
 	justify-content: center;
 }
 
-.door-left, .door-right {
+.door {
 	margin: 1px;
 	background: rgba(0,0,0,0.5);
 	width: 45%;
 	transition: transform 2.5s;
+	transition-duration: 2s;
 }
 
 .lift:hover {
-	background: #84cc16;
+	background: #facc15;
 	cursor: pointer;
 }
 
 #input-form {
 	width: 40%;
-	padding:  30px;
+	padding: 30px;
 	margin: 20px auto;
-	text-align: center;
-	background: linear-gradient(30deg, #38bdf8, #fbbf24);
-	color: white;
 	border-radius: 15px;
+	background: #eab308;
+	text-align: center;
 }
 
 label, input {
@@ -105,21 +101,24 @@ label, input {
 }
 
 label {
-	margin-top: 12px;
+	margin-top: 20px;
 	font-size: 20px;
+	color: white;
 }
 
 input {
 	padding: 4px 7px;
 	margin: 5px auto;
-	border:  none;
 	border-radius: 5px;
-	width: 100%;
-	text-align: center;
+	width: 200px;
+	border: none;
 }
 
 #generate-btn {
-	margin: 20px auto;
+	margin: 15px auto;
+	width: fit-content;
+	background: white;
+	color: #eab308;
 }
 
 @media (max-width:  768px) {

@@ -9,6 +9,8 @@ generateBtn.addEventListener('click', (e) => {
 	const totalFloors = parseInt(inputFloors.value)
 	const totalLifts = parseInt(inputLifts.value)
 
+	if(!totalFloors || !totalLifts) return alert("Invalid input for Lifts or Floors")
+
 	inputForm.classList.add('hidden')
 	floorsSection.classList.remove('hidden')
 
@@ -19,8 +21,7 @@ generateBtn.addEventListener('click', (e) => {
 				<h3>FLOOR: ${i}</h3>
 				<div class="floor" id="floor-${i}">
 					<div class="btns">
-						<button class="btn btn-yellow" id="up-btn-${i}">Up</button>
-						<button class="btn btn-blue" id="down-btn-${i}">Down</button>
+						<button class="btn " id="up-btn-${i}">Call</button>
 					</div>
 				</div>
 			`
@@ -32,8 +33,8 @@ generateBtn.addEventListener('click', (e) => {
 			<div class="lifts">
 				<div class="lift" id="lift-${i}">
 					<div class="doors">
-						<div class="door-left"></div>	
-						<div class="door-right"></div>	
+						<div class="door" id="door-left-${i}"></div>	
+						<div class="door" id="door-right-${i}"></div>	
 					</div>
 				</div>
 			</div>
@@ -70,16 +71,27 @@ generateBtn.addEventListener('click', (e) => {
 				busyLifts.push(liftNumber)
 
 				const lift = document.querySelector(`#lift-${liftNumber}`)
-				lift.style.transition = 'transform 2s'
-				lift.style.transform = `translateY(-${145 * btnId}px)`
+				const leftDoor = document.querySelector(`#door-left-${liftNumber}`)
+				const rightDoor = document.querySelector(`#door-right-${liftNumber}`)
+				console.log(leftDoor)
 
-			} else if (btn.id.includes('down')) {
-				const liftNumber = busyLifts.shift()
-				freeLifts.push(liftNumber)
-
-				const lift = document.querySelector(`#lift-${liftNumber}`)
 				lift.style.transition = 'transform 2s'
-				lift.style.transform = `translateY(${0}px)`
+				lift.style.transform = `translateY(-${115 * btnId}px)`
+
+				setTimeout(() => {
+					leftDoor.style.transform = `translateX(-40px)`
+					rightDoor.style.transform = `translateX(40px)`
+				}, 2000)
+
+
+
+				setTimeout(()=> {
+					const lift = busyLifts.shift()
+					freeLifts.push(lift)
+					leftDoor.style.transform = `translateX(0px)`
+					rightDoor.style.transform = `translateX(0px)`
+				}, 4000)
+
 			}
 		})
 	})
