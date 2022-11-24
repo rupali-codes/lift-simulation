@@ -77,8 +77,8 @@ h3 {
 	margin: 1px;
 	background: rgba(0,0,0,0.5);
 	width: 45%;
-	transition: transform 2.5s;
-	transition-duration: 2s;
+	transition: transform 2s;
+	transition-duration: 1.5s;
 }
 
 .lift:hover {

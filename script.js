@@ -63,34 +63,46 @@ generateBtn.addEventListener('click', (e) => {
 	allBtns.forEach(btn => {
 		btn.addEventListener('click', (e) => {
 			e.preventDefault()
+
 			const btn = e.target.closest('.btn')
 			const btnId = btn.id[btn.id.length-1];
 			if (btn.id.includes('up')) {
 
-				const liftNumber = freeLifts.shift()
-				busyLifts.push(liftNumber)
+				if(freeLifts.length){
+					const liftNumber = freeLifts.shift()
+					busyLifts.push(liftNumber) //-empty
 
-				const lift = document.querySelector(`#lift-${liftNumber}`)
-				const leftDoor = document.querySelector(`#door-left-${liftNumber}`)
-				const rightDoor = document.querySelector(`#door-right-${liftNumber}`)
-				console.log(leftDoor)
+					console.log("after pushing busyLifts: ", busyLifts)
 
-				lift.style.transition = 'transform 2s'
-				lift.style.transform = `translateY(-${115 * btnId}px)`
+					const lift = document.querySelector(`#lift-${liftNumber}`)
+					const leftDoor = document.querySelector(`#door-left-${liftNumber}`)
+					const rightDoor = document.querySelector(`#door-right-${liftNumber}`)
 
-				setTimeout(() => {
-					leftDoor.style.transform = `translateX(-40px)`
-					rightDoor.style.transform = `translateX(40px)`
-				}, 2000)
+					lift.style.transition = 'transform 2.5s ease'
+					lift.style.transform = `translateY(-${115 * btnId}px)`
+
+					setTimeout(() => {
+						leftDoor.style.transform = `translateX(-40px)`
+						rightDoor.style.transform = `translateX(40px)`
+					}, 2000)
 
 
 
-				setTimeout(()=> {
-					const lift = busyLifts.shift()
-					freeLifts.push(lift)
-					leftDoor.style.transform = `translateX(0px)`
-					rightDoor.style.transform = `translateX(0px)`
-				}, 4000)
+					setTimeout(()=> {
+						busyLifts.length ? freeLifts.push(busyLifts.shift()) :  console.log("bah blah")
+						
+						console.log('Busy lifts: ', busyLifts)
+						console.log('Free lifts: ', freeLifts)
+
+						leftDoor.style.transform = `translateX(0px)`
+						rightDoor.style.transform = `translateX(0px)`
+					}, 5000)
+				}
+				else if(!freeLifts.length && !busyLifts.length < 1) {
+
+					alert('All lifts are busy, please wait for a while')
+					freeLifts.push(busyLifts.shift())
+				}
 
 			}
 		})
